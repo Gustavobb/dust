@@ -273,11 +273,6 @@ fn main() {
         }
     };
 
-    if options.is_present("filter") {
-        println!("Filtering by: {:?}", filter_regexs);
-    }
-    // todo incl invert regex
-
     let ignored_full_path: HashSet<PathBuf> = ignore_directories
         .into_iter()
         .flat_map(|x| simplified_dirs.iter().map(move |d| d.join(x.clone())))
