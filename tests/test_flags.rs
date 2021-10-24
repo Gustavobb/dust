@@ -131,6 +131,7 @@ pub fn test_show_files_by_regex_match_nothing() {
 #[test]
 pub fn test_show_files_by_regex_match_multiple() {
     let output = build_command(vec!["-c", "-e", "test_dir2", "-e", "unicode", "tests"]);
+    println!("{:?}", output);
     assert!(output.contains("test_dir2"));
     assert!(output.contains("test_dir_unicode"));
     assert!(!output.contains("many")); // We do not find the 'many' folder in the 'test_dir' folder
