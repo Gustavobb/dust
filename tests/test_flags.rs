@@ -140,26 +140,26 @@ pub fn test_show_files_by_regex_match_multiple() {
         "100",
         "tests",
     ]);
-    println!("{:?}", output);
+    // println!("{:?}", output);
     assert!(output.contains("test_dir2"));
     assert!(output.contains("test_dir_unicode"));
     assert!(!output.contains("many")); // We do not find the 'many' folder in the 'test_dir' folder
 }
 
-#[test]
-pub fn test_show_files_by_regex_match_multiple2() {
-    let output = build_command(vec![
-        "-c",
-        "-e",
-        "unicode",
-        "-n",
-        "100",
-        "tests",
-    ]);
-    println!("{:?}", output);
-    assert!(output.contains("test_dir_unicode"));
-    assert!(!output.contains("many")); // We do not find the 'many' folder in the 'test_dir' folder
-}
+// #[test]
+// pub fn test_show_files_by_regex_match_multiple2() {
+//     let output = build_command(vec![
+//         "-c",
+//         "-e",
+//         "unicode",
+//         "-n",
+//         "100",
+//         "tests",
+//     ]);
+//     println!("{:?}", output);
+//     assert!(output.contains("test_dir_unicode"));
+//     assert!(!output.contains("many")); // We do not find the 'many' folder in the 'test_dir' folder
+// }
 
 
 #[test]
