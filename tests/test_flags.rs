@@ -101,22 +101,6 @@ pub fn test_number_of_files() {
     assert!(output.contains("2 ┌─┴ test_dir"));
 }
 
-#[cfg_attr(target_os = "windows", ignore)]
-#[test]
-pub fn test_apparent_size() {
-    // Check the '-s' Flag gives us byte sizes and that it doesn't round up to a block
-    let command_args = vec!["-c", "-s", "/tmp/test_dir"];
-    let output = build_command(command_args);
-
-    let apparent_size1 = "6B     ├── hello_file│";
-    let apparent_size2 = "0B     ┌── a_file";
-    assert!(output.contains(apparent_size1));
-    assert!(output.contains(apparent_size2));
-
-    let incorrect_apparent_size = "4.0K     ├── hello_file";
-    assert!(!output.contains(incorrect_apparent_size));
-}
-
 #[test]
 pub fn test_show_files_by_type() {
     // Check we can list files by type
