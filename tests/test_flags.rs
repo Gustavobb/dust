@@ -136,8 +136,6 @@ pub fn test_show_files_by_regex_match_multiple() {
         "test_dir_unicode",
         "-e",
         "test_dir2",
-        "-n",
-        "100",
         "tests",
     ]);
     // println!("{:?}", output);
@@ -160,7 +158,6 @@ pub fn test_show_files_by_regex_match_multiple() {
 //     assert!(output.contains("test_dir_unicode"));
 //     assert!(!output.contains("many")); // We do not find the 'many' folder in the 'test_dir' folder
 // }
-
 
 #[test]
 pub fn test_show_files_by_invert_regex() {
