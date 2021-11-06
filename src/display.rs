@@ -124,7 +124,8 @@ pub fn draw_it(
         let max_size = root_node.size;
         max_size.separate_with_commas().chars().count()
     } else {
-        5 // Under normal usage we need 5 chars to display the size of a directory
+        // TODO change to constant
+        7 // Under normal usage we need 5 chars to display the size of a directory
     };
 
     let terminal_width = terminal_width - 9 - num_chars_needed_on_left_most;
@@ -318,7 +319,7 @@ fn get_pretty_size(node: &DisplayNode, is_biggest: bool, display_data: &DisplayD
             display_data.num_chars_needed_on_left_most - size_as_str.chars().count();
         size_as_str + " ".repeat(spaces_to_add).as_str()
     } else {
-        format!("{:>5}", human_readable_number(node.size))
+        format!("{:>7}", human_readable_number(node.size))
     };
 
     if is_biggest && display_data.colors_on {
@@ -354,7 +355,7 @@ fn human_readable_number(size: u64) -> String {
             if size / marker < 10 {
                 return format!("{:.1}{}", (size as f32 / marker as f32), u);
             } else {
-                return format!("{}{}", (size / marker), u);
+                return format!("{}  {}", (size / marker), u);
             }
         }
     }
