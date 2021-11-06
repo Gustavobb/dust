@@ -133,7 +133,7 @@ pub fn test_show_files_by_regex_match_multiple() {
     let output = build_command(vec![
         "-c",
         "-e",
-        "test_dir_unicode",
+        "test_dir_hidden_entries",
         "-e",
         "test_dir2",
         "tests",
@@ -153,14 +153,12 @@ pub fn test_show_files_by_regex_match_multiple3() {
 }
 
 #[test]
-pub fn test_show_files_by_regex_match_multiple3.1() {
+pub fn test_show_files_by_regex_match_multiple3_1() {
     let output = build_command(vec!["-c", "-n", "100", "tests"]);
     println!("{:?}", output);
     assert!(output.contains("test_dir_unicodeXX"));
     assert!(!output.contains("many")); // We do not find the 'many' folder in the 'test_dir' folder
 }
-
-
 
 #[test]
 pub fn test_show_files_by_invert_regex() {
