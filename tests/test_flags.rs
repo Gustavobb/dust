@@ -140,7 +140,7 @@ pub fn test_show_files_by_regex_match_multiple() {
     ]);
     println!("{:?}", output);
     assert!(output.contains("test_dir2"));
-    assert!(output.contains("test_dir_unicode"));
+    assert!(output.contains("test_dir_hidden"));
     assert!(!output.contains("many")); // We do not find the 'many' folder in the 'test_dir' folder
 }
 
